@@ -3,11 +3,12 @@ package step2_add_standard_mc_converts
 import "strings"
 
 func AlterInOutSnbtBlock(inBlockName, inBlockState, outBlockName, outBlockState string) (string, string, string, string) {
-	if outBlockName == "cherry_sign" {
+	switch outBlockName {
+	case "cherry_sign":
 		// fix
 		outBlockName = "standing_sign"
 		outBlockState = strings.ReplaceAll(outBlockState, "rotation", "ground_sign_direction")
-	} else if outBlockName == "cherry_wall_sign" {
+	case "cherry_wall_sign":
 		outBlockName = "wall_sign"
 		// outBlockState = strings.ReplaceAll(outBlockState, "facing", "facing_direction")
 		// outBlockState = strings.ReplaceAll(outBlockState, "down", "0")
